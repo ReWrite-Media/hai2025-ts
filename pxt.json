@@ -8,12 +8,9 @@
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts"
+        "custom.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
+    "testFiles": [],
     "public": true,
     "targetVersions": {
         "target": "2.0.37",
@@ -22,5 +19,5 @@
     "supportedTargets": [
         "minecraft"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
