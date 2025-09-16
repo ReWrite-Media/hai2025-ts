@@ -7,7 +7,7 @@ namespace actions {
     /**
      * Classify a wood log.
      */
-    //% block="classify %n as wood `custom.logOak`"
+    //% block="classify %n as wood"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
     }
