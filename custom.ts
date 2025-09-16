@@ -18,7 +18,7 @@ namespace defaults {
 }
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
-namespace values {
+namespace hai {
 
     /**
      * Classify a wood log.
