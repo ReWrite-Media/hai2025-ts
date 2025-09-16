@@ -18,7 +18,7 @@ namespace values {
     /**
      * Select Oak Log
      */
-    //% block="`custom.logOak` Oak"
+    //% block="`custom.logOak` oak log"
     export function logOak(): number {
         return 1;
     }
@@ -26,7 +26,7 @@ namespace values {
     /**
      * Select Birch Log
      */
-    //% block="`custom.logBirch` Birch"
+    //% block="`custom.logBirch` birch log"
     export function logBirch(): number {
         return 2;
     }
@@ -34,7 +34,7 @@ namespace values {
     /**
      * Select Acacia Log
      */
-    //% block="`custom.logAcacia` Acacia"
+    //% block="`custom.logAcacia` acacia log"
     export function logAcacia(): number {
         return 3;
     }
@@ -42,7 +42,7 @@ namespace values {
     /**
      * Select Cobblestone
      */
-    //% block="`custom.Cobblestone` Cobblestone"
+    //% block="`custom.Cobblestone` cobblestone"
     export function cobblestone(): number {
         return 0;
     }
