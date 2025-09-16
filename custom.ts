@@ -2,6 +2,13 @@
 // Custom MakeCode extension file
 
 
+//% weight=200 color="#D1E400" icon="\uf126" block="HAI Defaults"
+namespace defaults {
+    //% block="agent training"
+    export function customStart(): void {
+        // your code here
+    }
+}
 //% weight=200 color="#0096FF" icon="\uf126" block="HAI Actions"
 namespace actions {
     /**
