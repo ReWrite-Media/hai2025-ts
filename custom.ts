@@ -1,6 +1,13 @@
 // custom.ts
 // Custom MakeCode extension file
 
+class SymbolGrid {
+    gridText: String
+    public constructor(gridText: String) {
+        this.gridText = gridText;
+    }
+}
+
 
 //% weight=200 color="#D1E400" icon="\uf126" block="HAI Defaults"
 namespace defaults {
@@ -22,6 +29,15 @@ namespace actions {
 
 //% weight=200 color="#008106" icon="\uf126" block="HAI Values"
 namespace values {
+
+    //% blockId=buildagrid block="crest"
+    //% imageLiteralColumns=3
+    //% imageLiteralRows=3
+    //% gridLiteral=1
+    export function craftingGrid(grid: string) {
+        return new SymbolGrid(grid);
+    }
+
     /**
      * Select Oak Log
      */
