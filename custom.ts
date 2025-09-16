@@ -77,7 +77,7 @@ namespace hai {
     /**
      * Ghost Block
      */
-    //% block="`custom.Ghost` ghost block"
+    //% block="`custom.Ghost` place here"
     //% blockId=ghost
     export function ghostBlock(): number {
         return 0;
