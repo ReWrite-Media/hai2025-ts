@@ -43,7 +43,7 @@ namespace values {
      * Select Cobblestone
      */
     //% block="`custom.Cobblestone` Cobblestone"
-    export function cobbleStone(): number {
+    export function cobblestone(): number {
         return 0;
     }
 
