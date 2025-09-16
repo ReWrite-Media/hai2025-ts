@@ -7,7 +7,7 @@ namespace actions {
     /**
      * Classify a wood log.
      */
-    //% block = "classify %n as wood `custom.logOak"
+    //% block = "classify %n as wood `custom.logOak`"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
     }
@@ -18,7 +18,7 @@ namespace values {
     /**
      * Select Oak Log
      */
-    //% block = "`custom.logOak` oak log"
+    //% block = "`custom.logOak` test1"
     export function logOak(): number {
         return 1;
     }
@@ -26,7 +26,7 @@ namespace values {
     /**
      * Select Birch Log
      */
-    //% block = "`custom.logBirch` birch log"
+    //% block = "`custom.logBirch` test2"
     export function logBirch(): number {
         return 2;
     }
@@ -34,7 +34,7 @@ namespace values {
     /**
      * Select Acacia Log
      */
-    //% block = "`custom.logAcacia` acacia log"
+    //% block = "`custom.logAcacia` test3"
     export function logAcacia(): number {
         return 3;
     }
