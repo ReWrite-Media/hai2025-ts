@@ -42,7 +42,7 @@ namespace values {
     /**
      * Select Grass
      */
-    //% block="`custom.grass` grass"
+    //% block="`custom.Grass` grass"
     export function grass(): number {
         return 0;
     }
