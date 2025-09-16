@@ -77,7 +77,7 @@ namespace hai {
     /**
      * Ghost Block
      */
-    //% block="`custom.Ghost` ???"
+    //% block="`custom.Ghost`"
     //% color="#8E8E8E"
     //% blockId=ghost
     export function ghostBlock(): number {
