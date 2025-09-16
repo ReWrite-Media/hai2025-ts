@@ -24,7 +24,7 @@ namespace hai {
      * Classify a wood log.
      */
     //% block="classify %n as wood"
-    //% n.shadow="logvalue"
+    //% 
     //% color="#0096FF"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
