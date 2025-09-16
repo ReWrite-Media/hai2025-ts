@@ -22,6 +22,7 @@ namespace actions {
      * Classify a wood log.
      */
     //% block="classify %n as wood"
+    //% n.shadow="logvalue"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
     }
@@ -30,10 +31,11 @@ namespace actions {
 //% weight=200 color="#008106" icon="\uf126" block="HAI Values"
 namespace values {
 
-    //% blockId=buildagrid block="crest"
-    //% imageLiteralColumns=3
-    //% imageLiteralRows=3
-    //% gridLiteral=1
+    //% block="crafting %pattern"
+    //% pattern.fieldEditor="gridpicker"
+    //% pattern.fieldOptions.columns=3
+    //% pattern.fieldOptions.rows=3
+    //% pattern.fieldOptions.tooltips="false"
     export function craftingGrid(grid: string) {
         return new SymbolGrid(grid);
     }
@@ -42,6 +44,7 @@ namespace values {
      * Select Oak Log
      */
     //% block="`custom.logOak` oak log"
+    //% blockId=logvalue
     export function logOak(): number {
         return 1;
     }
@@ -50,6 +53,7 @@ namespace values {
      * Select Birch Log
      */
     //% block="`custom.logBirch` birch log"
+    //% blockId=logvalue
     export function logBirch(): number {
         return 2;
     }
@@ -58,6 +62,7 @@ namespace values {
      * Select Acacia Log
      */
     //% block="`custom.logAcacia` acacia log"
+    //% blockId=logvalue
     export function logAcacia(): number {
         return 3;
     }
@@ -66,6 +71,7 @@ namespace values {
      * Select Grass
      */
     //% block="`custom.Grass` grass"
+    //% blockId=logvalue
     export function grass(): number {
         return 0;
     }
