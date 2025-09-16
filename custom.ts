@@ -6,7 +6,7 @@ namespace hai {
     /**
      * Select Oak Log
      */
-    //% block = "`custom.LogOak` oak log"
+    //% block = "`custom.logOak` oak log"
     //% blockSetVariable = "logType"
     export function logOak(): number {
         return 1;
@@ -15,7 +15,7 @@ namespace hai {
     /**
      * Select Birch Log
      */
-    //% block = "`custom.LogBirch` birch log"
+    //% block = "`custom.logBirch` birch log"
     //% blockSetVariable = "logType"
     export function logBirch(): number {
         return 2;
@@ -24,7 +24,7 @@ namespace hai {
     /**
      * Select Acacia Log
      */
-    //% block = "`custom.LogAcacia` acacia log"
+    //% block = "`custom.logAcacia` acacia log"
     //% blockSetVariable = "logType"
     export function logAcacia(): number {
         return 3;
