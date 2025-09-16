@@ -35,7 +35,7 @@ namespace hai {
      */
     //% block = "classify %n as wood"
     export function _classifyWood(n: number): void {
-        player.execute(`scoreboard players set .output global ${n}`);
+        player.execute(`scoreboard players set .output${n} global ${n}`);
     }
 
 
