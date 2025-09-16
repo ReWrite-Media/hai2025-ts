@@ -1,29 +1,29 @@
 // custom.ts
 // Custom MakeCode extension file
 
-//% weight=200 color="#0000FF" icon="brain" block="Hour of AI"
+//% weight=200 color="#0096FF" icon="brain" block="Hour of AI"
 namespace hai {
     /**
      * Select Oak Log
      */
-    //% block = "`block.LogOak` Oak Log"
-    export function logOak(): void{
+    //% block = "`Block.LogOak` oak log"
+    export function logOak(): void {
         player.execute("scoreboard players set .output global 1")
     }
 
     /**
-     * Select Oak Log
+     * Select Birch Log
      */
-    //% block = "`block.LogBirch` Oak Log"
-    export function logBirch(): void{
+    //% block = "`Block.LogBirch` birch log"
+    export function logBirch(): void {
         player.execute("scoreboard players set .output global 2")
     }
-    
+
     /**
-     * Select Oak Log
+     * Select Acacia Log
      */
-    //% block = "`block.LogAcacia` Oak Log"
-    export function logAcacia(): void{
+    //% block = "`Block.LogAcacia` acacia log"
+    export function logAcacia(): void {
         player.execute("scoreboard players set .output global 3")
-    }    
+    }
 }
