@@ -40,10 +40,10 @@ namespace values {
     }
 
     /**
-     * Select Cobblestone
+     * Select Grass
      */
-    //% block="`custom.Cobblestone` cobblestone"
-    export function cobblestone(): number {
+    //% block="`custom.grass` grass"
+    export function grass(): number {
         return 0;
     }
 
