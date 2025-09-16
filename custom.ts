@@ -18,7 +18,7 @@ namespace values {
     /**
      * Select Oak Log
      */
-    //% block = "`custom.logOak` test1"
+    //% block="`custom.logOak` test1"
     export function logOak(): number {
         return 1;
     }
@@ -26,7 +26,7 @@ namespace values {
     /**
      * Select Birch Log
      */
-    //% block = "`custom.logBirch` test2"
+    //% block="`custom.logBirch` test2"
     export function logBirch(): number {
         return 2;
     }
@@ -34,7 +34,7 @@ namespace values {
     /**
      * Select Acacia Log
      */
-    //% block = "`custom.logAcacia` test3"
+    //% block="test3"
     export function logAcacia(): number {
         return 3;
     }
