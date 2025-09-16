@@ -16,20 +16,19 @@ namespace defaults {
         // your code here
     }
 }
-//% weight=200 color="#0096FF" icon="\uf126" block="HAI Actions"
-namespace actions {
+
+//% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
+namespace values {
+
     /**
      * Classify a wood log.
      */
     //% block="classify %n as wood"
     //% n.shadow="logvalue"
+    //% color="#0096FF"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
     }
-}
-
-//% weight=200 color="#008106" icon="\uf126" block="HAI Values"
-namespace values {
 
     //% blockId=buildagrid block="craft"
     //% imageLiteralColumns=3
