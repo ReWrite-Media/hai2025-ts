@@ -31,14 +31,11 @@ namespace hai {
     }
 
     /**
-     * Select Oak Log
+     * Classify a wood log.
      */
     //% block = "classify %n as wood"
-    export function _classifyWood(n: number): void {
+    export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
     }
-
-
-
 
 }
