@@ -24,7 +24,7 @@ namespace hai {
      * Classify a wood log.
      */
     //% block="classify %n as wood"
-    //% 
+    //% n.shadow="oaklog"
     //% color="#0096FF"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global ${n}`);
@@ -42,7 +42,7 @@ namespace hai {
      * Select Oak Log
      */
     //% block="`custom.logOak` oak log"
-    //% blockId=logvalue
+    //% blockId=oaklog
     export function logOak(): number {
         return 1;
     }
@@ -51,7 +51,7 @@ namespace hai {
      * Select Birch Log
      */
     //% block="`custom.logBirch` birch log"
-    //% blockId=logvalue
+    //% blockId=birchlog
     export function logBirch(): number {
         return 2;
     }
@@ -60,7 +60,7 @@ namespace hai {
      * Select Acacia Log
      */
     //% block="`custom.logAcacia` acacia log"
-    //% blockId=logvalue
+    //% blockId=acacialog
     export function logAcacia(): number {
         return 3;
     }
@@ -69,7 +69,7 @@ namespace hai {
      * Select Grass
      */
     //% block="`custom.Grass` grass"
-    //% blockId=logvalue
+    //% blockId=grass
     export function grass(): number {
         return 0;
     }
