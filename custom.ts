@@ -31,11 +31,10 @@ namespace actions {
 //% weight=200 color="#008106" icon="\uf126" block="HAI Values"
 namespace values {
 
-    //% block="crafting %pattern"
-    //% pattern.fieldEditor="gridpicker"
-    //% pattern.fieldOptions.columns=3
-    //% pattern.fieldOptions.rows=3
-    //% pattern.fieldOptions.tooltips="false"
+    //% blockId=buildagrid block="craft"
+    //% imageLiteralColumns=3
+    //% imageLiteralRows=3
+    //% gridLiteral=1
     export function craftingGrid(grid: string) {
         return new SymbolGrid(grid);
     }
