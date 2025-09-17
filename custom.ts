@@ -53,75 +53,47 @@ namespace hai {
     //% blockid="craft"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
+        // These lines help you see the raw input in chat for debugging
         player.say("start");
-        player.say(pattern.patternText)
-        player.say("end")
-        if (pattern.patternText === `
-        ##
-        ##`) {
-            // crafted crafting bench
+        player.say(pattern.patternText);
+        player.say("end");
+
+        // This cleans the pattern string by removing all extra whitespace
+        // from the beginning, end, and from each individual line.
+        const normalizedPattern = pattern.patternText
+            .trim()
+            .split('\n')
+            .map(line => line.trim())
+            .join('\n');
+
+        // All comparisons now use the 'normalizedPattern' variable
+        // and correctly formatted strings with '\n' for new lines.
+        if (normalizedPattern === `##\n##`) {
+            // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
-        } else if (pattern.patternText === `
-        #..
-        #..
-        ...` || pattern.patternText === `
-        .#.
-        .#.
-        ...` || pattern.patternText === `
-        ..#
-        ..#
-        ...` || pattern.patternText === `
-        ...
-        #..
-        #..` || pattern.patternText === `
-        ...
-        .#.
-        .#.` || pattern.patternText === `
-        ...
-        ..#
-        ..#` || pattern.patternText === `
-        #..
-        #..` || pattern.patternText === `
-        .#.
-        .#.` || pattern.patternText === `
-        ..#
-        ..#` || pattern.patternText === `
-        #..
-        #..` || pattern.patternText === `
-        .#.
-        .#.` || pattern.patternText === `
-        ..#
-        ..#` ) {
-            // crafted stick or torch
+        } else if (
+            normalizedPattern === `#..\n#..\n...` || normalizedPattern === `.#.\n.#.\n...` ||
+            normalizedPattern === `..#\n..#\n...` || normalizedPattern === `...\n#..\n#..` ||
+            normalizedPattern === `...\n.#.\n.#.` || normalizedPattern === `...\n..#\n..#` ||
+            normalizedPattern === `#..\n#..` || normalizedPattern === `.#.\n.#.` ||
+            normalizedPattern === `..#\n..#`
+        ) {
+            // Crafted stick or torch
             player.execute(`scoreboard players set .output5 global 1`);
-        } else if (pattern.patternText === `
-        ###
-        .#.
-        .#.`) {
-            // crafted pickaxe
+        } else if (normalizedPattern === `###\n.#.\n.#.`) {
+            // Crafted pickaxe
             player.execute(`scoreboard players set .output6 global 1`);
-        } else if (pattern.patternText === `
-        ##.
-        ##.
-        .#.` || pattern.patternText === `
-        .##
-        .##
-        .#.`) {
-            // crafted axe
+        } else if (normalizedPattern === `##.\n##.\n.#.` || normalizedPattern === `.##\n.##\n.#.`) {
+            // Crafted axe
             player.execute(`scoreboard players set .output7 global 1`);
-        } else if (pattern.patternText === `
-        .#.
-        .#.
-        .#.` || pattern.patternText === `
-        #..
-        #..
-        #..` || pattern.patternText === `
-        ..#
-        ..#
-        ..#` ) {
-            // crafted pickaxe
+        } else if (
+            normalizedPattern === `.#.\n.#.\n.#.` || normalizedPattern === `#..\n#..\n#..` ||
+            normalizedPattern === `..#\n..#\n..#`
+        ) {
+            // Crafted shovel
             player.execute(`scoreboard players set .output8 global 1`);
         } else {
+            // Pattern did not match any recipe
             player.execute(`scoreboard players set .output0 global 1`);
         }
     }
