@@ -16,7 +16,6 @@ namespace hai {
      */
     //% block="train crafting %pattern"
     //% blockid="craft"
-    //% pattern.shadow="ghostPattern"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         if (pattern.patternText === `
