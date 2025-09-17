@@ -16,7 +16,6 @@ namespace hai {
      */
     //% block="crafting grid %pattern"
     //% blockid="craft"
-    //% pattern.shadow="ghostPattern"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         if (pattern.patternText === `
@@ -57,18 +56,6 @@ namespace hai {
     //% gridLiteral=1
     export function pocketcraftingPattern(pattern: string) {
         return new CraftPattern(pattern);
-    }
-
-    /**
-     * Ghost Grid.
-     */
-    //% blockId=ghostPattern block=" "
-    //% imageLiteralColumns=1
-    //% imageLiteralRows=1
-    //% gridLiteral=1
-    //% color="#8E8E8E"    
-    export function ghostPattern(pattern: string) {
-        return new CraftPattern("");
     }
 
     /**
