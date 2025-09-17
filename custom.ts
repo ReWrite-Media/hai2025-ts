@@ -33,7 +33,7 @@ namespace hai {
     /**
      * Select Stick
      */
-    //% block="`custom.Stick` Stick"
+    //% block="`custom.Stick` stick"
     export function stick(): number {
         return 2;
     }
