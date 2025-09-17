@@ -54,43 +54,25 @@ namespace hai {
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         player.say("start");
+        player.say("Raw Pattern: " + pattern.patternText);
 
-        // ================== NEW DEBUGGING BLOCK ==================
-        // This will print the character code of every character in the raw pattern string.
-        // This is the most reliable way to see the true structure of the string.
-        let debugString = "";
-        for (let i = 0; i < pattern.patternText.length; i++) {
-            // Add the character code and a space to our debug string
-            debugString += pattern.patternText.charCodeAt(i) + " ";
-        }
-        player.say("RAW CHAR CODES: " + debugString);
-        // =======================================================
+        // This simple logic removes space delimiters and trims extra newlines.
+        const normalizedPattern = pattern.patternText
+            .split(' ').join('')
+            .trim();
 
+        player.say("Normalized Pattern: " + normalizedPattern);
         player.say("end");
 
-        const normalizedPattern = pattern.patternText
-            .trim()
-            .split('\n')
-            .map((line: string) =>
-                line.split(' ')
-                    .map((cell: string) => (cell.toLowerCase() === 'empty' || cell.length === 0 ? '.' : '#'))
-                    .join('')
-            )
-            .join('\n');
-
-        const safeDebugPattern = normalizedPattern.split('#').join('H').split('.').join('o');
-        player.say("Normalized and Safe to Print: " + safeDebugPattern);
-
-        // ... your if/else if chain remains the same ...
+        // This if/else if chain should now work perfectly.
         if (normalizedPattern === `##\n##`) {
             // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
         } else if (
+            normalizedPattern === `#.\n#.` || normalizedPattern === `.#\n.#` || // Stick patterns for 2x2
             normalizedPattern === `#..\n#..\n...` || normalizedPattern === `.#.\n.#.\n...` ||
             normalizedPattern === `..#\n..#\n...` || normalizedPattern === `...\n#..\n#..` ||
-            normalizedPattern === `...\n.#.\n.#.` || normalizedPattern === `...\n..#\n..#` ||
-            normalizedPattern === `#..\n#..` || normalizedPattern === `.#.\n.#.` ||
-            normalizedPattern === `..#\n..#`
+            normalizedPattern === `...\n.#.\n.#.` || normalizedPattern === `...\n..#\n..#`
         ) {
             // Crafted stick or torch
             player.execute(`scoreboard players set .output5 global 1`);
