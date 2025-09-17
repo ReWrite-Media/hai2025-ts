@@ -19,7 +19,7 @@ namespace hai {
     //% n.shadow="ghostBlock"
     //% color="#0096FF"
     export function craftWith(n: number): void {
-        player.execute(`scoreboard players set .output${n} global ${n}`);
+        player.execute(`scoreboard players set .output${n} global 1`);
     }
 
     /**
@@ -57,15 +57,69 @@ namespace hai {
         ##
         ##`) {
             // crafted crafting bench
-            player.execute(`scoreboard players set .output3 global 1`);
+            player.execute(`scoreboard players set .output4 global 1`);
+        } else if (pattern.patternText === `
+        #..
+        #..
+        ...` || pattern.patternText === `
+        .#.
+        .#.
+        ...` || pattern.patternText === `
+        ..#
+        ..#
+        ...` || pattern.patternText === `
+        ...
+        #..
+        #..` || pattern.patternText === `
+        ...
+        .#.
+        .#.` || pattern.patternText === `
+        ...
+        ..#
+        ..#` || pattern.patternText === `
+        #..
+        #..` || pattern.patternText === `
+        .#.
+        .#.` || pattern.patternText === `
+        ..#
+        ..#` || pattern.patternText === `
+        #..
+        #..` || pattern.patternText === `
+        .#.
+        .#.` || pattern.patternText === `
+        ..#
+        ..#` ) {
+            // crafted stick or torch
+            player.execute(`scoreboard players set .output5 global 1`);
         } else if (pattern.patternText === `
         ###
         .#.
         .#.`) {
             // crafted pickaxe
-            player.execute(`scoreboard players set .output3 global 2`);
+            player.execute(`scoreboard players set .output6 global 1`);
+        } else if (pattern.patternText === `
+        ##.
+        ##.
+        .#.` || pattern.patternText === `
+        .##
+        .##
+        .#.` || ) {
+            // crafted axe
+            player.execute(`scoreboard players set .output7 global 1`);
+        } else if (pattern.patternText === `
+        .#.
+        .#.
+        .#.` || pattern.patternText === `
+        #..
+        #..
+        #..` || pattern.patternText === `
+        ..#
+        ..#
+        ..#` || ) {
+            // crafted pickaxe
+            player.execute(`scoreboard players set .output8 global 1`);
         } else {
-            player.execute(`scoreboard players set .output3 global 0`);
+            player.execute(`scoreboard players set .output0 global 1`);
         }
     }
 
