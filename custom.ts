@@ -57,24 +57,22 @@ namespace hai {
         player.say(pattern.patternText);
         player.say("end");
 
-        // This new, more robust logic converts any filled grid slot to '#' and any empty one to '.'.
-        // This correctly handles the output from the MakeCode grid block.
+        // This logic now correctly identifies 'empty' cells from the grid block.
         const normalizedPattern = pattern.patternText
             .trim()
             .split('\n')
             .map((line: string) =>
                 line.split(' ')
-                    .map((cell: string) => (cell.length > 0 ? '#' : '.'))
+                    // THIS IS THE CORRECTED LINE:
+                    .map((cell: string) => (cell.toLowerCase() === 'empty' || cell.length === 0 ? '.' : '#'))
                     .join('')
             )
             .join('\n');
 
-        // To prevent crashes, we can safely print a version of the pattern.
-        // This replaces '#' with 'H' and '.' with 'o' just for the chat message.
         const safeDebugPattern = normalizedPattern.split('#').join('H').split('.').join('o');
         player.say("Normalized and Safe to Print: " + safeDebugPattern);
 
-        // Your if/else if chain should now work as expected.
+        // Your if/else if chain should now work correctly for all cases.
         if (normalizedPattern === `##\n##`) {
             // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
