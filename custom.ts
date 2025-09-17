@@ -85,7 +85,6 @@ namespace hai {
      * Select Wood
      */
     //% block="`custom.PlanksOak` wood"
-    //% blockId=wood
     export function wood(): number {
         return 1;
     }
@@ -94,7 +93,6 @@ namespace hai {
      * Select Cobblestone
      */
     //% block="`custom.Cobblestone` cobblestone"
-    //% blockId=cobblestone
     export function cobblestone(): number {
         return 2;
     }
