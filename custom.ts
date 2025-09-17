@@ -11,6 +11,33 @@ class CraftPattern {
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
 
+
+    /**
+     * Select block to craft with.
+     */
+    //% block="craft with %n"
+    //% n.shadow="ghostBlock"
+    //% color="#0096FF"
+    export function craftWith(n: number): void {
+        player.execute(`scoreboard players set .output${n} global ${n}`);
+    }
+
+    /**
+     * Select Wood
+     */
+    //% block="`custom.PlanksOak` wood"
+    export function wood(): number {
+        return 1;
+    }
+
+    /**
+     * Select Cobblestone
+     */
+    //% block="`custom.Cobblestone` cobblestone"
+    export function cobblestone(): number {
+        return 2;
+    }
+
     /**
      * Train agent crafting.
      */
@@ -56,32 +83,6 @@ namespace hai {
     //% gridLiteral=1
     export function pocketcraftingPattern(pattern: string) {
         return new CraftPattern(pattern);
-    }
-
-    /**
-     * Select block to craft with.
-     */
-    //% block="craft with %n"
-    //% n.shadow="ghostBlock"
-    //% color="#0096FF"
-    export function craftWith(n: number): void {
-        player.execute(`scoreboard players set .output${n} global ${n}`);
-    }
-
-    /**
-     * Select Wood
-     */
-    //% block="`custom.PlanksOak` wood"
-    export function wood(): number {
-        return 1;
-    }
-
-    /**
-     * Select Cobblestone
-     */
-    //% block="`custom.Cobblestone` cobblestone"
-    export function cobblestone(): number {
-        return 2;
     }
 
     /**
