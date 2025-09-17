@@ -154,7 +154,7 @@ namespace hai {
     //% n.shadow="ghostBlock"
     //% color="#0096FF"
     export function classifyWood(n: number): void {
-        player.execute(`scoreboard players set .output${n} global ${n}`);
+        player.execute(`scoreboard players set .output${n} global 1`);
     }
 
     /**
