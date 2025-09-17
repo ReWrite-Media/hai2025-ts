@@ -60,7 +60,13 @@ namespace hai {
             .trim();
 
         // This if/else if chain should now work perfectly.
-        if (normalizedPattern === `##\n##`) {
+        if (
+            normalizedPattern === `##\n##` ||             // The original 2x2 pattern
+            normalizedPattern === `##.\n##.\n...` ||    // Top-left 2x2 in a 3x3
+            normalizedPattern === `.##\n.##\n...` ||    // Top-right 2x2 in a 3x3
+            normalizedPattern === `...\n##.\n##.` ||    // Bottom-left 2x2 in a 3x3
+            normalizedPattern === `...\n.##\n.##`      // Bottom-right 2x2 in a 3x3
+        ) {
             // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
         } else if (
