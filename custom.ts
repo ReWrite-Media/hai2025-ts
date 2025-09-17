@@ -14,23 +14,24 @@ namespace hai {
     /**
      * Train agent crafting.
      */
-    //% block="train crafting %pattern"
+    //% block="crafting grid %pattern"
     //% blockid="craft"
+    //% pattern.shadow="ghostPattern"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         if (pattern.patternText === `
         ##
         ##`) {
             // crafted crafting bench
-            player.execute(`scoreboard players set .output1 global 1`);
+            player.execute(`scoreboard players set .output3 global 1`);
         } else if (pattern.patternText === `
         ###
         .#.
         .#.`) {
             // crafted pickaxe
-            player.execute(`scoreboard players set .output2 global 2`);
+            player.execute(`scoreboard players set .output3 global 2`);
         } else {
-            player.execute(`scoreboard players set .output global 0`);
+            player.execute(`scoreboard players set .output3 global 0`);
         }
     }
 
@@ -59,16 +60,43 @@ namespace hai {
     }
 
     /**
-     * 2x2 Ghost Grid.
+     * Ghost Grid.
      */
     //% blockId=ghostPattern block=" "
     //% imageLiteralColumns=0
     //% imageLiteralRows=0
-    //% gridLiteral=1
-    //% color="#8E8E8E"
-
+    //% gridLiteral=0
+    //% color="#8E8E8E"    
     export function ghostPattern(pattern: string) {
         return new CraftPattern(pattern);
+    }
+
+    /**
+     * Select block to craft with.
+     */
+    //% block="craft with %n"
+    //% n.shadow="ghostBlock"
+    //% color="#0096FF"
+    export function craftWith(n: number): void {
+        player.execute(`scoreboard players set .output${n} global ${n}`);
+    }
+
+    /**
+     * Select Wood
+     */
+    //% block="`custom.PlanksOak` wood"
+    //% blockId=oaklog
+    export function wood(): number {
+        return 1;
+    }
+
+    /**
+     * Select Cobblestone
+     */
+    //% block="`custom.Cobblestone` cobblestone"
+    //% blockId=oaklog
+    export function cobblestone(): number {
+        return 2;
     }
 
     /**
