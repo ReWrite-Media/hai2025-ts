@@ -1,19 +1,10 @@
 // custom.ts
 // Custom MakeCode extension file
 
-class SymbolGrid {
-    gridText: String
-    public constructor(gridText: String) {
-        this.gridText = gridText;
-    }
-}
-
-
-//% weight=200 color="#D1E400" icon="\uf126" block="HAI Defaults"
-namespace defaults {
-    //% block="agent training"
-    export function customStart(): void {
-        // your code here
+class CraftPattern {
+    patternText: String
+    public constructor(patternText: String) {
+        this.patternText = patternText;
     }
 }
 
@@ -21,21 +12,74 @@ namespace defaults {
 namespace hai {
 
     /**
-     * Classify a wood log.
+     * Train agent crafting.
      */
-    //% block="classify %n as wood"
-    //% n.shadow="ghost"
+    //% block="train crafting %pattern"
+    //% blockid="craft"
+    //% pattern.shadow="ghostPattern"
     //% color="#0096FF"
-    export function classifyWood(n: number): void {
-        player.execute(`scoreboard players set .output${n} global ${n}`);
+    export function crafting(pattern: CraftPattern): void {
+        if (pattern.patternText === `
+        ##
+        ##`) {
+            // crafted crafting bench
+            player.execute(`scoreboard players set .output1 global 1`);
+        } else if (pattern.patternText === `
+        ###
+        .#.
+        .#.`) {
+            // crafted pickaxe
+            player.execute(`scoreboard players set .output2 global 2`);
+        } else {
+            player.execute(`scoreboard players set .output global 0`);
+        }
     }
 
-    //% blockId=buildagrid block="craft"
+
+    /**
+     * 3x3 Crafting Grid.
+     */
+    //% blockId=craftPattern block="3x3"
     //% imageLiteralColumns=3
     //% imageLiteralRows=3
     //% gridLiteral=1
-    export function craftingGrid(grid: string) {
-        return new SymbolGrid(grid);
+
+    export function craftingPattern(pattern: string) {
+        return new CraftPattern(pattern);
+    }
+
+    /**
+     * 2x2 Crafting Grid.
+     */
+    //% blockId=pocketcraftPattern block="2x2"
+    //% imageLiteralColumns=2
+    //% imageLiteralRows=2
+    //% gridLiteral=1
+    export function pocketcraftingPattern(pattern: string) {
+        return new CraftPattern(pattern);
+    }
+
+    /**
+     * 2x2 Ghost Grid.
+     */
+    //% blockId=ghostPattern block=" "
+    //% imageLiteralColumns=0
+    //% imageLiteralRows=0
+    //% gridLiteral=1
+    //% color="#8E8E8E"
+
+    export function ghostPattern(pattern: string) {
+        return new CraftPattern(pattern);
+    }
+
+    /**
+     * Classify a wood log.
+     */
+    //% block="classify %n as wood"
+    //% n.shadow="ghostBlock"
+    //% color="#0096FF"
+    export function classifyWood(n: number): void {
+        player.execute(`scoreboard players set .output${n} global ${n}`);
     }
 
     /**
@@ -79,7 +123,7 @@ namespace hai {
      */
     //% block="`custom.Ghost`"
     //% color="#8E8E8E"
-    //% blockId=ghost
+    //% blockId=ghostBlock
     export function ghostBlock(): number {
         return 0;
     }
