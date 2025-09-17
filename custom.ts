@@ -53,16 +53,11 @@ namespace hai {
     //% blockid="craft"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
-        player.say("start");
-        player.say("Raw Pattern: " + pattern.patternText);
 
         // This simple logic removes space delimiters and trims extra newlines.
         const normalizedPattern = pattern.patternText
             .split(' ').join('')
             .trim();
-
-        player.say("Normalized Pattern: " + normalizedPattern);
-        player.say("end");
 
         // This if/else if chain should now work perfectly.
         if (normalizedPattern === `##\n##`) {
@@ -104,9 +99,6 @@ namespace hai {
     //% gridLiteral=1
 
     export function craftingPattern(pattern: string) {
-        player.say("start 3x3");
-        player.say(pattern)
-        player.say("end")
         return new CraftPattern(pattern);
     }
 
@@ -118,9 +110,6 @@ namespace hai {
     //% imageLiteralRows=2
     //% gridLiteral=1
     export function pocketcraftingPattern(pattern: string) {
-        player.say("start 2x2");
-        player.say(pattern)
-        player.say("end")
         return new CraftPattern(pattern);
     }
 
