@@ -62,7 +62,7 @@ namespace hai {
     /**
      * Ghost Grid.
      */
-    //% blockId=ghostPattern block="`custom.GhostGrid`"
+    //% blockId=ghostPattern block=" "
     //% imageLiteralColumns=1
     //% imageLiteralRows=1
     //% gridLiteral=1
