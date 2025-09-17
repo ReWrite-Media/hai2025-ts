@@ -62,10 +62,10 @@ namespace hai {
     /**
      * Ghost Grid.
      */
-    //% blockId=ghostPattern block=" "
-    //% imageLiteralColumns=0
-    //% imageLiteralRows=0
-    //% gridLiteral=0
+    //% blockId=ghostPattern block=""
+    //% imageLiteralColumns=2
+    //% imageLiteralRows=2
+    //% gridLiteral=1
     //% color="#8E8E8E"    
     export function ghostPattern(pattern: string) {
         return new CraftPattern(" ");
