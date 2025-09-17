@@ -31,11 +31,19 @@ namespace hai {
     }
 
     /**
+     * Select Stick
+     */
+    //% block="`custom.Stick` Stick"
+    export function stick(): number {
+        return 2;
+    }
+
+    /**
      * Select Cobblestone
      */
     //% block="`custom.Cobblestone` cobblestone"
     export function cobblestone(): number {
-        return 2;
+        return 3;
     }
 
     /**
