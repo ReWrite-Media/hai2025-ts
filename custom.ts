@@ -54,7 +54,7 @@ namespace hai {
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         player.say("start");
-        player.say(pattern)
+        player.say(pattern.patternText)
         player.say("end")
         if (pattern.patternText === `
         ##
@@ -139,7 +139,7 @@ namespace hai {
         player.say("start 3x3");
         player.say(pattern)
         player.say("end")
-        return pattern;
+        return new CraftPattern(pattern);
     }
 
     /**
@@ -153,7 +153,7 @@ namespace hai {
         player.say("start 2x2");
         player.say(pattern)
         player.say("end")
-        return pattern;
+        return new CraftPattern(pattern);
     }
 
     /**
