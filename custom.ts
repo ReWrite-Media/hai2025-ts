@@ -136,6 +136,9 @@ namespace hai {
     //% gridLiteral=1
 
     export function craftingPattern(pattern: string) {
+        player.say("start 3x3");
+        player.say(pattern)
+        player.say("end")
         return new CraftPattern(pattern);
     }
 
@@ -147,6 +150,9 @@ namespace hai {
     //% imageLiteralRows=2
     //% gridLiteral=1
     export function pocketcraftingPattern(pattern: string) {
+        player.say("start 2x2");
+        player.say(pattern)
+        player.say("end")
         return new CraftPattern(pattern);
     }
 
