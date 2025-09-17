@@ -53,6 +53,9 @@ namespace hai {
     //% blockid="craft"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
+        player.say("start");
+        player.say(pattern)
+        player.say("end")
         if (pattern.patternText === `
         ##
         ##`) {
