@@ -62,7 +62,7 @@ namespace hai {
     /**
      * Ghost Grid.
      */
-    //% blockId=ghostPattern block=""
+    //% blockId=ghostPattern block=" "
     //% imageLiteralColumns=2
     //% imageLiteralRows=2
     //% gridLiteral=1
