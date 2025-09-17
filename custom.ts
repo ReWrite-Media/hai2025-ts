@@ -54,16 +54,25 @@ namespace hai {
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
         player.say("start");
-        player.say(pattern.patternText);
+
+        // ================== NEW DEBUGGING BLOCK ==================
+        // This will print the character code of every character in the raw pattern string.
+        // This is the most reliable way to see the true structure of the string.
+        let debugString = "";
+        for (let i = 0; i < pattern.patternText.length; i++) {
+            // Add the character code and a space to our debug string
+            debugString += pattern.patternText.charCodeAt(i) + " ";
+        }
+        player.say("RAW CHAR CODES: " + debugString);
+        // =======================================================
+
         player.say("end");
 
-        // This logic now correctly identifies 'empty' cells from the grid block.
         const normalizedPattern = pattern.patternText
             .trim()
             .split('\n')
             .map((line: string) =>
                 line.split(' ')
-                    // THIS IS THE CORRECTED LINE:
                     .map((cell: string) => (cell.toLowerCase() === 'empty' || cell.length === 0 ? '.' : '#'))
                     .join('')
             )
@@ -72,7 +81,7 @@ namespace hai {
         const safeDebugPattern = normalizedPattern.split('#').join('H').split('.').join('o');
         player.say("Normalized and Safe to Print: " + safeDebugPattern);
 
-        // Your if/else if chain should now work correctly for all cases.
+        // ... your if/else if chain remains the same ...
         if (normalizedPattern === `##\n##`) {
             // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
