@@ -68,7 +68,7 @@ namespace hai {
     //% gridLiteral=1
     //% color="#8E8E8E"    
     export function ghostPattern(pattern: string) {
-        return "";
+        return new CraftPattern(" ");
     }
 
     /**
