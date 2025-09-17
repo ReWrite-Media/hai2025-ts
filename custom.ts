@@ -139,7 +139,7 @@ namespace hai {
         player.say("start 3x3");
         player.say(pattern)
         player.say("end")
-        return new CraftPattern(pattern);
+        return pattern;
     }
 
     /**
@@ -153,7 +153,7 @@ namespace hai {
         player.say("start 2x2");
         player.say(pattern)
         player.say("end")
-        return new CraftPattern(pattern);
+        return pattern;
     }
 
     /**
