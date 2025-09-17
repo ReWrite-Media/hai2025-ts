@@ -61,10 +61,15 @@ namespace hai {
         // This cleans the pattern string by removing all extra whitespace
         // from the beginning, end, and from each individual line.
         const normalizedPattern = pattern.patternText
+            .split(' ').join('.')  // FIX 1: Replaced regex with split/join for compatibility.
             .trim()
             .split('\n')
-            .map(line => line.trim())
+            .map((line: string) => line.trim()) // FIX 2: Added explicit 'string' type for the 'line' parameter.
             .join('\n');
+
+        player.say("start normalized pattern");
+        player.say(normalizedPattern);
+        player.say("end");
 
         // All comparisons now use the 'normalizedPattern' variable
         // and correctly formatted strings with '\n' for new lines.
