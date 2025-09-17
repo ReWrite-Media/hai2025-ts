@@ -103,7 +103,7 @@ namespace hai {
         .#.` || pattern.patternText === `
         .##
         .##
-        .#.` || ) {
+        .#.`) {
             // crafted axe
             player.execute(`scoreboard players set .output7 global 1`);
         } else if (pattern.patternText === `
@@ -115,7 +115,7 @@ namespace hai {
         #..` || pattern.patternText === `
         ..#
         ..#
-        ..#` || ) {
+        ..#` ) {
             // crafted pickaxe
             player.execute(`scoreboard players set .output8 global 1`);
         } else {
