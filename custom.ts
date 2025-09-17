@@ -53,26 +53,28 @@ namespace hai {
     //% blockid="craft"
     //% color="#0096FF"
     export function crafting(pattern: CraftPattern): void {
-        // These lines help you see the raw input in chat for debugging
         player.say("start");
         player.say(pattern.patternText);
         player.say("end");
 
-        // This cleans the pattern string by removing all extra whitespace
-        // from the beginning, end, and from each individual line.
+        // This new, more robust logic converts any filled grid slot to '#' and any empty one to '.'.
+        // This correctly handles the output from the MakeCode grid block.
         const normalizedPattern = pattern.patternText
-            .split(' ').join('.')  // FIX 1: Replaced regex with split/join for compatibility.
             .trim()
             .split('\n')
-            .map((line: string) => line.trim()) // FIX 2: Added explicit 'string' type for the 'line' parameter.
+            .map((line: string) =>
+                line.split(' ')
+                    .map((cell: string) => (cell.length > 0 ? '#' : '.'))
+                    .join('')
+            )
             .join('\n');
 
-        player.say("start normalized pattern");
-        player.say(normalizedPattern);
-        player.say("end");
+        // To prevent crashes, we can safely print a version of the pattern.
+        // This replaces '#' with 'H' and '.' with 'o' just for the chat message.
+        const safeDebugPattern = normalizedPattern.split('#').join('H').split('.').join('o');
+        player.say("Normalized and Safe to Print: " + safeDebugPattern);
 
-        // All comparisons now use the 'normalizedPattern' variable
-        // and correctly formatted strings with '\n' for new lines.
+        // Your if/else if chain should now work as expected.
         if (normalizedPattern === `##\n##`) {
             // Crafted crafting bench
             player.execute(`scoreboard players set .output4 global 1`);
