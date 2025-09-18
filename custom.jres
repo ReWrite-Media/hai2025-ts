@@ -29,5 +29,14 @@
     },
     "Stick": {
         "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAT0lEQVQ4y2NgGAjg4uICxmRr9jQT/a8hx/2fbM2d6eqkG0AVzRl+cqM2EwvIthmmGWbztGnTGExNTcmzGaSZJAPQnQ3SSJLtII1k+ZlSAAChYkrlEehYfgAAAABJRU5ErkJggg=="
+    },
+    "WoodenShovel": {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4y2NgGFLAXFPgPwyTpbktVQ2MswPlSTMEprk0QhGsGcQm2gB0zSCaJANAwNNMlDLNnenq/zXkuCnTDPMOSZoz/OTgmkkC6DaTrJksm0EaKLaZbM3IhlBkADkAAMxRWODHIR4FAAAAAElFTkSuQmCC"
+    },
+    "WoodenPickaxe": {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAe0lEQVQ4y2NgGLTAXFPgPzomSXNbqtr/0gjF/9mB8mAMYoPEPc1E/2f4yf0n2QUwgzrT1f9ryHH/J9lLIJthLiLJOzDNIGeDbEb2DtGakZ0N8w5RBiDbjBw2RBmAbjOyAQS9gM1m9CjGaQAum9ENIdlmkkObZEC2zZQCAAVxblonm69fAAAAAElFTkSuQmCC"
+    },
+    "WoodenAxe": {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2NgoAcw1xT4D8Jka25LVQNjkg2Bac4OlP9fGqFImgHImmHY00z0f4af3H+SDADZDNIc6SwJpjXkuP+THHggm5ENIckrMGeDbIZ5hWgDQJo709XhziYpOpFtJjnuKdaM7OwhYjMIkG0zpQAAtFpjWIRtKC4AAAAASUVORK5CYII="
     }  
 }    

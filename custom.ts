@@ -175,4 +175,42 @@ namespace hai {
         return 0;
     }
 
+    /**
+    * Upgrade tools material.
+    */
+    //% block="upgrade %t to %m"
+    //% t.shadow="ghostBlock"
+    //% m.shadow="ghostBlock"
+    //% color="#0096FF"   
+    export function upgradeTool(t: number, m: number): void {
+        player.execute(`scoreboard players set .output${t} global ${m}`);
+    }
+
+    /**
+     * Select Pickaxe
+     */
+    //% block="`custom.WoodenPickaxe` pickaxe"
+    //% blockId=pickaxe
+    export function pickaxe(): number {
+        return 1;
+    }
+
+    /**
+     * Select Axe
+     */
+    //% block="`custom.WoodenAxe` axe"
+    //% blockId=axe
+    export function axe(): number {
+        return 2;
+    }
+
+    /**
+     * Select Pickaxe
+     */
+    //% block="`custom.WoodenShovel` shovel"
+    //% blockId=shovel
+    export function shovel(): number {
+        return 3;
+    }
+
 }
