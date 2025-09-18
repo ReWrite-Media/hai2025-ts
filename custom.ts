@@ -72,6 +72,36 @@ namespace hai {
         ) {
             // Crafted door
             player.execute(`scoreboard players set .output9 global 1`);
+        } else if (
+            normalizedPattern === `###\n#.#\n###`
+        ) {
+            // Crafted furnace
+            player.execute(`scoreboard players set .output10 global 1`);
+        } else if (
+            normalizedPattern === `...\n###\n###` || normalizedPattern === `###\n###\n...`
+        ) {
+            // Crafted bed
+            player.execute(`scoreboard players set .output11 global 1`);
+        } else if (
+            // Shears Patterns
+            // 2x2 Grid
+            normalizedPattern === `#.\n.#` ||
+            normalizedPattern === `.#\n#.` ||
+
+            // 3x3 Grid (Top-Left to Bottom-Right Diagonal)
+            normalizedPattern === `#..\n.#.\n...` ||
+            normalizedPattern === `.#.\n..#\n...` ||
+            normalizedPattern === `...\n#..\n.#.` ||
+            normalizedPattern === `...\n.#.\n..#` ||
+
+            // 3x3 Grid (Top-Right to Bottom-Left Diagonal)
+            normalizedPattern === `.#.\n#..\n...` ||
+            normalizedPattern === `..#\n.#.\n...` ||
+            normalizedPattern === `...\n.#.\n#..` ||
+            normalizedPattern === `...\n..#\n.#.`
+        ) {
+            // Crafted shears
+            player.execute(`scoreboard players set .output12 global 1`);
         } else {
             // Pattern did not match any recipe
             player.execute(`scoreboard players set .output0 global 1`);
@@ -106,6 +136,16 @@ namespace hai {
     //% b.shadow="ghostBlock"
     //% color="#0096FF"   
     export function buildingMaterials(b: number): void {
+        player.execute(`scoreboard players set .output${b} global 1`);
+    }
+
+    /**
+    * Classify as ore
+    */
+    //% block="classify %b as ore"
+    //% b.shadow="ghostBlock"
+    //% color="#0096FF"   
+    export function classifyOre(b: number): void {
         player.execute(`scoreboard players set .output${b} global 1`);
     }
 
@@ -158,6 +198,33 @@ namespace hai {
     }
 
     /**
+     * Select Coal Ore
+     */
+    //% block="`custom.CoalOre` coal ore"
+    //% blockId=coalore
+    export function coalOre(): number {
+        return 4;
+    }
+
+    /**
+     * Select Iron Ore
+     */
+    //% block="`custom.IronOre` iron ore"
+    //% blockId=ironore
+    export function IronOre(): number {
+        return 5;
+    }
+
+    /**
+     * Select Wool
+     */
+    //% block="`custom.Wool` wool"
+    //% blockId=wool
+    export function wool(): number {
+        return 6;
+    }
+
+    /**
      * Select Grass
      */
     //% block="`custom.Grass` grass"
@@ -174,6 +241,26 @@ namespace hai {
     //% blockId=ghostBlock
     export function ghostBlock(): number {
         return 0;
+    }
+
+    // CRAFTING INGREDIENTS
+
+    /**
+     * Coal
+     */
+    //% block="`custom.Coal` coal"
+    //% blockId=coal
+    export function coal(): number {
+        return 21;
+    }
+
+    /**
+     * Iron Ingot
+     */
+    //% block="`custom.IronIngot`"
+    //% blockId=ironIngot
+    export function ironIngot(): number {
+        return 22;
     }
 
     // ITEMS    
