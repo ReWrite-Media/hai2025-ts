@@ -272,7 +272,7 @@ namespace hai {
     /**
      * Iron Ingot
      */
-    //% block="`custom.IronIngot`"
+    //% block="`custom.IronIngot` iron ingot"
     //% blockId=ironIngot
     export function ironIngot(): number {
         return 22;
