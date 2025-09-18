@@ -11,8 +11,14 @@ class CraftPattern {
 //% weight=200 color="#0096FF" icon="\uf126" block="Hour of AI"
 namespace haiInputs {
 
-    export function input(): number {
-        return 1
+    /**
+     * Select block to craft with.
+     */
+    //% block="craft with %n"
+    //% n.shadow="ghostBlock"
+    //% color="#0096FF"
+    export function craftWith(n: number): void {
+        player.execute(`scoreboard players set .output${n} global 1`);
     }
 
 }
