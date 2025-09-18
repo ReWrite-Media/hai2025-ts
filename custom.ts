@@ -216,6 +216,17 @@ namespace hai {
     // CRAFTING GRIDS
 
     /**
+     * 2x2 Crafting Grid.
+     */
+    //% blockId=pocketcraftPattern block="2x2"
+    //% imageLiteralColumns=2
+    //% imageLiteralRows=2
+    //% gridLiteral=1
+    export function pocketcraftingPattern(pattern: string) {
+        return new CraftPattern(pattern);
+    }
+
+    /**
      * 3x3 Crafting Grid.
      */
     //% blockId=craftPattern block="3x3"
@@ -224,17 +235,6 @@ namespace hai {
     //% gridLiteral=1
 
     export function craftingPattern(pattern: string) {
-        return new CraftPattern(pattern);
-    }
-
-    /**
-     * 2x2 Crafting Grid.
-     */
-    //% blockId=pocketcraftPattern block="2x2"
-    //% imageLiteralColumns=2
-    //% imageLiteralRows=2
-    //% gridLiteral=1
-    export function pocketcraftingPattern(pattern: string) {
         return new CraftPattern(pattern);
     }
 
