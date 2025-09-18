@@ -8,6 +8,11 @@ class CraftPattern {
     }
 }
 
+//% weight=200 color="#0096FF" icon="\uf126" block="Hour of AI"
+namespace haiInputs {
+
+}
+
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
 
