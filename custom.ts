@@ -226,7 +226,7 @@ namespace hai {
      */
     //% block="`custom.IronOre` iron ore"
     //% blockId=ironore
-    export function IronOre(): number {
+    export function ironOre(): number {
         return 5;
     }
 
