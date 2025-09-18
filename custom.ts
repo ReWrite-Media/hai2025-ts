@@ -11,6 +11,8 @@ class CraftPattern {
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
 
+    // INPUTS
+    // These functions set scoreboard values based on user selections.
 
     /**
      * Select block to craft with.
@@ -20,30 +22,6 @@ namespace hai {
     //% color="#0096FF"
     export function craftWith(n: number): void {
         player.execute(`scoreboard players set .output${n} global 1`);
-    }
-
-    /**
-     * Select Wood
-     */
-    //% block="`custom.PlanksOak` wood"
-    export function wood(): number {
-        return 1;
-    }
-
-    /**
-     * Select Stick
-     */
-    //% block="`custom.Stick` stick"
-    export function stick(): number {
-        return 2;
-    }
-
-    /**
-     * Select Cobblestone
-     */
-    //% block="`custom.Cobblestone` cobblestone"
-    export function cobblestone(): number {
-        return 3;
     }
 
     /**
@@ -100,30 +78,6 @@ namespace hai {
         }
     }
 
-
-    /**
-     * 3x3 Crafting Grid.
-     */
-    //% blockId=craftPattern block="3x3"
-    //% imageLiteralColumns=3
-    //% imageLiteralRows=3
-    //% gridLiteral=1
-
-    export function craftingPattern(pattern: string) {
-        return new CraftPattern(pattern);
-    }
-
-    /**
-     * 2x2 Crafting Grid.
-     */
-    //% blockId=pocketcraftPattern block="2x2"
-    //% imageLiteralColumns=2
-    //% imageLiteralRows=2
-    //% gridLiteral=1
-    export function pocketcraftingPattern(pattern: string) {
-        return new CraftPattern(pattern);
-    }
-
     /**
      * Classify a wood log.
      */
@@ -132,6 +86,48 @@ namespace hai {
     //% color="#0096FF"
     export function classifyWood(n: number): void {
         player.execute(`scoreboard players set .output${n} global 1`);
+    }
+
+    /**
+    * Upgrade tools material.
+    */
+    //% block="upgrade %t to %m"
+    //% t.shadow="ghostBlock"
+    //% m.shadow="ghostBlock"
+    //% color="#0096FF"   
+    export function upgradeTool(t: number, m: number): void {
+        player.execute(`scoreboard players set .output${t} global ${m}`);
+    }
+
+    /**
+    * House Materials
+    */
+    //% block="building material %b"
+    //% b.shadow="ghostBlock"
+    //% color="#0096FF"   
+    export function buildingMaterials(b: number): void {
+        player.execute(`scoreboard players set .output${b} global 1`);
+    }
+
+    //VALUES
+    // These functions return constant values representing different items.
+
+    // BLOCKS
+
+    /**
+     * Select Wood
+     */
+    //% block="`custom.PlanksOak` wood"
+    export function wood(): number {
+        return 1;
+    }
+
+    /**
+     * Select Cobblestone
+     */
+    //% block="`custom.Cobblestone` cobblestone"
+    export function cobblestone(): number {
+        return 3;
     }
 
     /**
@@ -180,15 +176,14 @@ namespace hai {
         return 0;
     }
 
+    // ITEMS    
+
     /**
-    * Upgrade tools material.
-    */
-    //% block="upgrade %t to %m"
-    //% t.shadow="ghostBlock"
-    //% m.shadow="ghostBlock"
-    //% color="#0096FF"   
-    export function upgradeTool(t: number, m: number): void {
-        player.execute(`scoreboard players set .output${t} global ${m}`);
+     * Select Stick
+     */
+    //% block="`custom.Stick` stick"
+    export function stick(): number {
+        return 2;
     }
 
     /**
@@ -218,14 +213,29 @@ namespace hai {
         return 3;
     }
 
+    // CRAFTING GRIDS
+
     /**
-    * House Materials
-    */
-    //% block="building material %b"
-    //% b.shadow="ghostBlock"
-    //% color="#0096FF"   
-    export function buildingMaterials(b: number): void {
-        player.execute(`scoreboard players set .output${b} global 1`);
+     * 3x3 Crafting Grid.
+     */
+    //% blockId=craftPattern block="3x3"
+    //% imageLiteralColumns=3
+    //% imageLiteralRows=3
+    //% gridLiteral=1
+
+    export function craftingPattern(pattern: string) {
+        return new CraftPattern(pattern);
+    }
+
+    /**
+     * 2x2 Crafting Grid.
+     */
+    //% blockId=pocketcraftPattern block="2x2"
+    //% imageLiteralColumns=2
+    //% imageLiteralRows=2
+    //% gridLiteral=1
+    export function pocketcraftingPattern(pattern: string) {
+        return new CraftPattern(pattern);
     }
 
 }
