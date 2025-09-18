@@ -92,7 +92,7 @@ namespace hai {
     * Upgrade tools material.
     */
     //% block="upgrade %t to %m"
-    //% t.shadow="ghostBlock"
+    //% t.shadow="ghostItem"
     //% m.shadow="ghostBlock"
     //% color="#0096FF"   
     export function upgradeTool(t: number, m: number): void {
@@ -211,6 +211,16 @@ namespace hai {
     //% blockId=shovel
     export function shovel(): number {
         return 3;
+    }
+
+    /**
+     * Ghost Item
+     */
+    //% block="`custom.GhostItem`"
+    //% color="#8E8E8E"
+    //% blockId=ghostItem
+    export function ghostItem(): number {
+        return 0;
     }
 
     // CRAFTING GRIDS
