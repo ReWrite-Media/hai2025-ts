@@ -11,6 +11,10 @@ class CraftPattern {
 //% weight=200 color="#0096FF" icon="\uf126" block="Hour of AI"
 namespace haiInputs {
 
+    export function input(): number {
+        return 1
+    }
+
 }
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
