@@ -213,4 +213,14 @@ namespace hai {
         return 3;
     }
 
+    /**
+    * House Materials
+    */
+    //% block="building material %b"
+    //% b.shadow="ghostBlock"
+    //% color="#0096FF"   
+    export function buildingMaterials(b: number): void {
+        player.execute(`scoreboard players set .output${b} global 1`);
+    }
+
 }
