@@ -89,6 +89,11 @@ namespace hai {
         ) {
             // Crafted shovel
             player.execute(`scoreboard players set .output8 global 1`);
+        } else if (
+            normalizedPattern === `##.\n##.\n##.` || normalizedPattern === `.##\n.##\n.##`
+        ) {
+            // Crafted door
+            player.execute(`scoreboard players set .output9 global 1`);
         } else {
             // Pattern did not match any recipe
             player.execute(`scoreboard players set .output0 global 1`);
