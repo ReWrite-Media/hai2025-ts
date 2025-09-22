@@ -32,8 +32,9 @@ namespace hai {
      */
     //% block="training module"
     //% color="#0096FF"
+    //% blockId=on_training_start 
     export function trainingStart(handler:() => void) {
-        player.say("on start");
+        handler();
     }
 
     // INPUTS
