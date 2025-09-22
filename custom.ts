@@ -26,6 +26,16 @@ namespace haiInputs {
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
 
+
+    /**
+     * Training Module
+     */
+    //% block="training module"
+    //% color="#0096FF"
+    export function trainingStart(handler:() => void) {
+        // do something
+    }
+
     // INPUTS
     // These functions set scoreboard values based on user selections.
 
