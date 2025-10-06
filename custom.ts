@@ -128,6 +128,12 @@ namespace hai {
         ) {
             // Crafted shears
             player.execute(`scoreboard players set .output12 global 1`);
+        } else if (
+            normalizedPattern === `#.\n..` || normalizedPattern === `.#\n..` ||
+            normalizedPattern === `..\n#.` || normalizedPattern === `..\n.#`
+        ) {
+            // Crafted plank
+            player.execute(`scoreboard players set .output13 global 1`);
         } else {
             // Pattern did not match any recipe
             player.execute(`scoreboard players set .output0 global 1`);
