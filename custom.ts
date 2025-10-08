@@ -129,8 +129,15 @@ namespace hai {
             // Crafted shears
             player.execute(`scoreboard players set .output12 global 1`);
         } else if (
-            normalizedPattern === `#.\n..` || normalizedPattern === `.#\n..` ||
-            normalizedPattern === `..\n#.` || normalizedPattern === `..\n.#`
+            normalizedPattern === `#..\n...\n...` ||
+            normalizedPattern === `.#.\n...\n...` ||
+            normalizedPattern === `..#\n...\n...` ||
+            normalizedPattern === `...\n#..\n...` ||
+            normalizedPattern === `...\n.#.\n...` ||
+            normalizedPattern === `...\n..#\n...` ||
+            normalizedPattern === `...\n...\n#..` ||
+            normalizedPattern === `...\n...\n.#.` ||
+            normalizedPattern === `...\n...\n..#`
         ) {
             // Crafted plank
             player.execute(`scoreboard players set .output13 global 1`);
