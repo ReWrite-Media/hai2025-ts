@@ -27,9 +27,10 @@ namespace haiInputs {
 namespace minecraft {
 
     /**
-     * A mock class for the response object. Not directly exposed.
+     * A mock class for the response object.
+     * Exporting this makes its properties visible to Python.
      */
-    class AIResponse {
+    export class AIResponse {
         public content: string;
         constructor(message: string) {
             this.content = message;
@@ -87,6 +88,8 @@ namespace minecraft {
         return new MinecraftAI(apiUrl, apiEndpoint, apiKey);
     }
 }
+
+
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
