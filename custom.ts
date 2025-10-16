@@ -12,7 +12,7 @@ class CraftPattern {
 namespace haiInputs {
 
     /**
-     * Select block to craft with.
+     * This function takes
      */
     //% block="craft with %n"
     //% n.shadow="ghostBlock"
@@ -21,6 +21,71 @@ namespace haiInputs {
         player.execute(`scoreboard players set .output${n} global 1`);
     }
 
+}
+
+//% weight=200 color="#0096FF" icon="\uf126" block="Hour of AI Python"
+namespace minecraft {
+
+    /**
+     * A mock class for the response object. Not directly exposed.
+     */
+    class AIResponse {
+        public content: string;
+        constructor(message: string) {
+            this.content = message;
+        }
+    }
+
+    /**
+     * The main MinecraftAI class that holds the structure.
+     * This class type is exported so it can be used as a return type.
+     */
+    export class MinecraftAI {
+        // Properties to store the connection details
+        private url: string;
+        private endpoint: string;
+        private key: string;
+
+        constructor(url: string, endpoint: string, key: string) {
+            this.url = url;
+            this.endpoint = endpoint;
+            this.key = key;
+            // Log to the console that the client was created with specific details
+            console.log(`AI Client created for url: ${this.url}`);
+        }
+
+        /**
+         * Simulates training the AI model.
+         * @param data The data to "train" the model with.
+         */
+        train(data: { messages: any[] }): AIResponse {
+            // In the MakeCode simulator, this will post a message to the console.
+            console.log("test");
+            return new AIResponse("This is a mock response from the AI.");
+        }
+    }
+
+    /**
+     * Creates a new Minecraft AI client.
+     * This is the block the user will see in the toolbox and call from Python.
+     * @param apiUrl The URL for the AI service, eg: 'minecraft://agent.ai/'
+     * @param apiEndpoint The specific endpoint for the API, eg: 'classify'
+     * @param apiKey The authentication key.
+     */
+    //% block="create minecraft ai client with url %apiUrl endpoint %apiEndpoint key %apiKey"
+    export function createAIClient(apiUrl: string, apiEndpoint: string, apiKey: string): MinecraftAI {
+        // 1. Validate the API URL
+        if (apiUrl !== 'minecraft://agent.ai/') {
+            throw `404 Not Found: The requested URL ${apiUrl} was not found on this server.`;
+        }
+
+        // 2. Validate the API Endpoint
+        if (apiEndpoint !== "classify" && apiEndpoint !== "crafting") {
+            throw `Invalid endpoint: '${apiEndpoint}'. Available endpoints are 'classify' or 'crafting'.`;
+        }
+
+        return new MinecraftAI(apiUrl, apiEndpoint, apiKey);
+    }
 }
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
