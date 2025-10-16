@@ -64,8 +64,8 @@ namespace ai {
                     // Before using the value, check if it exists as a key in our 'items' list.
                     if (items[value] === undefined) {
                         // If it doesn't exist, show an error to the player with the original (untrimmed) value.
-                        player.execute(`/title @p §6title Invalid Item Name:`);
-                        player.execute(`/title @p §6subtitle '${data[key]}' is not a valid item for classification.`);
+                        player.execute(`/title @p title §6Invalid Item Name:`);
+                        player.execute(`/title @p subtitle §6'${data[key]}' is not a valid item for classification.`);
                         return; // Stop processing immediately
                     }
 
