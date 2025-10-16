@@ -63,7 +63,7 @@ namespace ai {
 
                     // --- Validation Check ---
                     // Before using the value, check if it exists as a key in our 'items' list.
-                    if (!(value in items)) {
+                    if (!(items[value] === undefined)) {
                         // If it doesn't exist, show an error to the player and stop the function.
                         player.execute(`/title @p title Invalid Item Name:`);
                         player.execute(`/title @p subtitle '${value}' is not a valid item for classification.`);
