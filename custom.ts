@@ -24,73 +24,66 @@ namespace haiInputs {
 }
 
 //% weight=200 color="#0096FF" icon="\uf126" block="Hour of AI Python"
-namespace minecraft {
+namespace ai {
 
-    /**
-     * A mock class for the response object. Not directly exposed.
-     */
-    class AIResponse {
-        public content: string;
-        constructor(message: string) {
-            this.content = message;
-        }
+    const items: { [key: string]: string } = {
+        'oak_planks': '1',
+        'cobblestone': '3',
+        'oak_log': '1',
+        'birch_log': '2',
+        'acacia_log': '3',
+        'coal_ore': '4',
+        'iron_ore': '5',
+        'wool': '6',
+        'grass': '0',
+        'coal': '21',
+        'iron_ingot': '22',
+        'stick': '2',
+        'wood_pickaxe': '1',
+        'wood_axe': '2',
+        'wood_shovel': '3'
     }
 
-    /**
-     * The main MinecraftAI class that holds the structure.
-     * This class type is exported so it can be used as a return type.
-     */
-    export class MinecraftAI {
-        // Properties to store the connection details
-        private url: string;
-        private endpoint: string;
-        private key: string;
+    export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
+        if (api_url !== 'minecraft://agent.ai/') {
+            player.execute(`/title @p title 404 Not Found:`);
+            player.execute(`/title @p subtitle The requested URL ${api_url} was not found on this server.`);
 
-        constructor(url: string, endpoint: string, key: string) {
-            this.url = url;
-            this.endpoint = endpoint;
-            this.key = key;
-            // Log to the console that the client was created with specific details
-            console.log(`AI Client created for url: ${this.url}`);
-        }
+        } else if (api_endpoint !== "classify" && api_endpoint !== "crafting") {
+            player.execute(`/title @p title Invalid endpoint:`);
+            player.execute(`/title @p subtitle '${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`);
+            throw `Invalid endpoint: '${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`;
 
-        /**
-         * Simulates training the AI model.
-         * @param data The data to "train" the model with.
-         */
-        train(data: { messages: any[] }): AIResponse {
-            // In the MakeCode simulator, this will post a message to the console.
-            console.log("test");
-            return new AIResponse("This is a mock response from the AI.");
+        } else {
+            if (api_endpoint == "classify") {
+                const keys = Object.keys(data);
+                for (const key of keys) {
+                    const value = data[key];
+
+                    // --- Validation Check ---
+                    // Before using the value, check if it exists as a key in our 'items' list.
+                    if (!(value in items)) {
+                        // If it doesn't exist, show an error to the player and stop the function.
+                        player.execute(`/title @p title Invalid Item Name:`);
+                        player.execute(`/title @p subtitle '${value}' is not a valid item for classification.`);
+                        return; // Stop processing immediately
+                    }
+
+                    // This line will now only run if the value is valid.
+                    player.execute(`scoreboard players set .output${items[value]} global 1`);
+                }
+
+            } else if (api_endpoint == "crafting") {
+
+            }
         }
+        
     }
-
-    /**
-     * Creates a new Minecraft AI client.
-     * This is the block the user will see in the toolbox and call from Python.
-     * @param apiUrl The URL for the AI service, eg: 'minecraft://agent.ai/'
-     * @param apiEndpoint The specific endpoint for the API, eg: 'classify'
-     * @param apiKey The authentication key.
-     */
-    //% block="create minecraft ai client with url %apiUrl endpoint %apiEndpoint key %apiKey"
-    export function createAIClient(apiUrl: string, apiEndpoint: string, apiKey: string): MinecraftAI {
-        // 1. Validate the API URL
-        if (apiUrl !== 'minecraft://agent.ai/') {
-            throw `404 Not Found: The requested URL ${apiUrl} was not found on this server.`;
-        }
-
-        // 2. Validate the API Endpoint
-        if (apiEndpoint !== "classify" && apiEndpoint !== "crafting") {
-            throw `Invalid endpoint: '${apiEndpoint}'. Available endpoints are 'classify' or 'crafting'.`;
-        }
-
-        return new MinecraftAI(apiUrl, apiEndpoint, apiKey);
-    }
+    
 }
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
-
 
     /**
      * Training Module
