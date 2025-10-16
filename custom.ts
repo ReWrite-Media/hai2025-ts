@@ -42,6 +42,7 @@ namespace ai {
         'wood_pickaxe': '1',
         'wood_axe': '2',
         'wood_shovel': '3'
+
     }
 
     export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
@@ -81,6 +82,8 @@ namespace ai {
     }
     
 }
+
+
 
 //% weight=200 color="#008106" icon="\uf126" block="Hour of AI"
 namespace hai {
