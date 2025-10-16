@@ -53,7 +53,6 @@ namespace ai {
         } else if (api_endpoint !== "classify" && api_endpoint !== "crafting") {
             player.execute(`/title @p title Invalid endpoint:`);
             player.execute(`/title @p subtitle '${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`);
-            throw `Invalid endpoint: '${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`;
 
         } else {
             if (api_endpoint == "classify") {
