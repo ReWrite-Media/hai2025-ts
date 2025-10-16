@@ -42,30 +42,30 @@ namespace ai {
         'wood_pickaxe': '1',
         'wood_axe': '2',
         'wood_shovel': '3'
-
     }
 
     export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
         if (api_url !== 'minecraft://agent.ai/') {
-            player.execute(`/title @p title 404 Not Found:`);
-            player.execute(`/title @p subtitle The requested URL ${api_url} was not found on this server.`);
+            player.execute(`/title @p title §6404 Not Found:`);
+            player.execute(`/title @p subtitle §6The requested URL ${api_url} was not found on this server.`);
 
         } else if (api_endpoint !== "classify" && api_endpoint !== "crafting") {
-            player.execute(`/title @p title Invalid endpoint:`);
-            player.execute(`/title @p subtitle '${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`);
+            player.execute(`/title @p title §6Invalid endpoint:`);
+            player.execute(`/title @p subtitle §6'${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`);
 
         } else {
             if (api_endpoint == "classify") {
                 const keys = Object.keys(data);
                 for (const key of keys) {
-                    const value = data[key];
+                    // Trim the value to remove any accidental leading/trailing whitespace.
+                    const value = data[key].trim();
 
                     // --- Validation Check ---
                     // Before using the value, check if it exists as a key in our 'items' list.
-                    if (!(items[value] === undefined)) {
-                        // If it doesn't exist, show an error to the player and stop the function.
-                        player.execute(`/title @p title Invalid Item Name:`);
-                        player.execute(`/title @p subtitle '${value}' is not a valid item for classification.`);
+                    if (items[value] === undefined) {
+                        // If it doesn't exist, show an error to the player with the original (untrimmed) value.
+                        player.execute(`/title @p §6title Invalid Item Name:`);
+                        player.execute(`/title @p §6subtitle '${data[key]}' is not a valid item for classification.`);
                         return; // Stop processing immediately
                     }
 
@@ -74,12 +74,10 @@ namespace ai {
                 }
 
             } else if (api_endpoint == "crafting") {
-
+                // Crafting logic would go here
             }
         }
-        
     }
-    
 }
 
 
