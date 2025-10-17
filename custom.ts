@@ -46,15 +46,15 @@ namespace ai {
 
     const crafting_recipes: { [key: string]: string } = {
         'BBBB': '4', // crafting bench
-        '....B..B.': '5', // stick or torch
-        'BBB.B..B.': '6', // pickaxe
-        'BB..B..B.': '7', // axe
-        '.B..B..B.': '8', // shovel
-        'BB.BB.BB.': '9', // door
-        'BBBB.BBBB': '10', // furnace
-        '...BBBBBB': '11', // bed
-        '....B...B': '12', // shears
-        '....B....': '13' // plank
+        'OOOOBOOBO': '5', // stick or torch
+        'BBBOBOOBO': '6', // pickaxe
+        'BBOOBOOBO': '7', // axe
+        'OBOOBOOBO': '8', // shovel
+        'BBOBBOBBO': '9', // door
+        'BBBBOBBBB': '10', // furnace
+        'OOOBBBBBB': '11', // bed
+        'OOOOBOOOB': '12', // shears
+        'OOOOBOOOO': '13' // plank
     }
 
     export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
