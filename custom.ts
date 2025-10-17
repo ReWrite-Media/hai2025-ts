@@ -62,9 +62,9 @@ namespace ai {
             player.execute(`/title @p title §6404 Not Found:`);
             player.execute(`/title @p subtitle §6The requested URL ${api_url} was not found on this server.`);
 
-        } else if (api_endpoint !== "classify" && api_endpoint !== "crafting") {
+        } else if (api_endpoint !== "classify" && api_endpoint !== "crafting" && api_endpoint !== "upgrade") {
             player.execute(`/title @p title §6Invalid endpoint:`);
-            player.execute(`/title @p subtitle §6'${api_endpoint}'. Available endpoints are 'classify' or 'crafting'.`);
+            player.execute(`/title @p subtitle §6'${api_endpoint}'. Available endpoints are 'classify', 'crafting' or 'upgrade'.`);
 
         } else {
             if (api_endpoint == "classify") {
@@ -107,7 +107,25 @@ namespace ai {
 
                     // This line will now only run if the value is valid.
                     player.execute(`scoreboard players set .output${crafting_recipes[value]} global 1`);
-                } 
+                }
+            } else if (api_endpoint == "upgrade") {
+                const keys = Object.keys(data);
+                for (const key of keys) {
+                    // Trim the value to remove any accidental leading/trailing whitespace.
+                    const value = data[key].trim();
+
+                    // --- Validation Check ---
+                    // Before using the value, check if it exists as a key in our 'items' list.
+                    if (items[value] === undefined || items[value] !== '3') {
+                        // If it doesn't exist, show an error to the player with the original (untrimmed) value.
+                        player.execute(`/title @p title §6Invalid Upgrade Type:`);
+                        player.execute(`/title @p subtitle §6'${value}' is not a valid upgrade.`);
+                        return; // Stop processing immediately
+                    }
+
+                    // This line will now only run if the value is valid.
+                    player.execute(`scoreboard players set .output${items[value]} global 1`);
+                }
             }
         }
     }
