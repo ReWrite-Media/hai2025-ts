@@ -44,6 +44,19 @@ namespace ai {
         'wood_shovel': '3'
     }
 
+    const crafting_recipes: { [key: string]: string } = {
+        'BBBB': '4', // crafting bench
+        '....B..B.': '5', // stick or torch
+        'BBB.B..B.': '6', // pickaxe
+        'BB..B..B.': '7', // axe
+        '.B..B..B.': '8', // shovel
+        'BB.BB.BB.': '9', // door
+        'BBBB.BBBB': '10', // furnace
+        '...BBBBBB': '11', // bed
+        '....B...B': '12', // shears
+        '....B....': '13' // plank
+    }
+
     export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
         if (api_url !== 'minecraft://agent.ai/') {
             player.execute(`/title @p title §6404 Not Found:`);
@@ -55,6 +68,7 @@ namespace ai {
 
         } else {
             if (api_endpoint == "classify") {
+
                 const keys = Object.keys(data);
                 for (const key of keys) {
                     // Trim the value to remove any accidental leading/trailing whitespace.
@@ -74,7 +88,26 @@ namespace ai {
                 }
 
             } else if (api_endpoint == "crafting") {
-                // Crafting logic would go here
+
+                const keys = Object.keys(data);
+                for (const key of keys) {
+                    // Trim the value to remove any accidental leading/trailing whitespace.
+                    let value = data[key].trim();
+                    value = value.split("\n").join("");
+                    value = value.split(" ").join("");
+                    value = value.split("\t").join("");
+                    // --- Validation Check ---
+                    // Before using the value, check if it exists as a key in our 'items' list.
+                    if (crafting_recipes[value] === undefined) {
+                        // If it doesn't exist, show an error to the player with the original (untrimmed) value.
+                        player.execute(`/title @p title §6Invalid Crafting Recipe:`);
+                        player.execute(`/title @p subtitle §6The passed pattern is not a valid crafting recipe.`);
+                        return; // Stop processing immediately
+                    }
+
+                    // This line will now only run if the value is valid.
+                    player.execute(`scoreboard players set .output${crafting_recipes[value]} global 1`);
+                } 
             }
         }
     }
