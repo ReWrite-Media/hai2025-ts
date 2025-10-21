@@ -56,7 +56,7 @@ namespace ai {
         'BBBBOBBBB': '10', // furnace
         'OOOBBBBBB': '11', // bed
         'OOOOBOOOB': '12', // shears
-        'OOOOBOOOO': '13' // plank
+        'OOOB': '13' // plank
     }
 
     /**
