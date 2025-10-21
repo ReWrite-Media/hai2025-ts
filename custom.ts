@@ -36,6 +36,8 @@ namespace ai {
         'iron_ore': '5',
         'wool': '6',
         'grass': '0',
+        'lava': '0',
+        'soul_sand': '0',
         'coal': '21',
         'iron_ingot': '22',
         'stick': '2',
@@ -57,6 +59,24 @@ namespace ai {
         'OOOOBOOOO': '13' // plank
     }
 
+    /**
+     * This function makes an API request.
+     *
+     * Usage Example:
+     * ai.make_api_request(
+     *     api_url,
+     *     api_key,
+     *     api_endpoint,
+     *     training_data)
+     *
+     * api_endpoint: Available endpoints are 'classify', 'crafting' or 'upgrade'.
+     * 
+     * training_data should be a list of training_type:training_value key pairs.
+     * Example:
+     * training_data = {
+     *     'wood': 'oak_log'
+     * }
+     */
     export function make_api_request(api_url: string, api_key: string, api_endpoint: string, data: { [key: string]: string }): void {
         if (api_url !== 'minecraft://agent.ai/') {
             player.execute(`/title @p title §6404 Not Found:`);
@@ -378,6 +398,24 @@ namespace hai {
     //% block="`custom.Grass` grass"
     //% blockId=grass
     export function grass(): number {
+        return 0;
+    }
+
+    /**
+     * Select Lava
+     */
+    //% block="`custom.Lava` lava"
+    //% blockId=lava
+    export function lava(): number {
+        return 0;
+    }
+
+    /**
+     * Select Soul Sand
+     */
+    //% block="`custom.SoulSand` soul sand"
+    //% blockId=soul_sand
+    export function soulSand(): number {
         return 0;
     }
 
