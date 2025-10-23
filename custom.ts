@@ -267,7 +267,11 @@ namespace hai {
             normalizedPattern === `...\n..#\n...` ||
             normalizedPattern === `...\n...\n#..` ||
             normalizedPattern === `...\n...\n.#.` ||
-            normalizedPattern === `...\n...\n..#`
+            normalizedPattern === `...\n...\n..#` ||
+            normalizedPattern === `#.\n..` ||
+            normalizedPattern === `.#\n..` ||
+            normalizedPattern === `..\n.#` ||
+            normalizedPattern === `..\n#.`
         ) {
             // Crafted plank
             player.execute(`scoreboard players set .output13 global 1`);
