@@ -44,7 +44,7 @@ namespace ai {
         'wood_pickaxe': '1',
         'wood_axe': '2',
         'wood_shovel': '3',
-        'wood': '7'
+        'wood': '1'
     }
 
     const crafting_recipes: { [key: string]: string } = {
