@@ -55,7 +55,7 @@ namespace ai {
         'BBBB': '4', // crafting bench
         'OOOOBOOBO': '5', // stick or torch
         'BBBOBOOBO': '6', // pickaxe
-        'BBOOBOOBO': '7', // axe
+        'BBOBBOOBO': '7', // axe
         'OBOOBOOBO': '8', // shovel
         'BBOBBOBBO': '9', // door
         'BBBBOBBBB': '10', // furnace
