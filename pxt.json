@@ -1,6 +1,6 @@
 {
     "name": "hai2025-ts",
-    "version": "0.0.115",
+    "version": "0.0.116",
     "description": "",
     "dependencies": {
         "core": "*",
